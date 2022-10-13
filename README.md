@@ -1,3 +1,4 @@
+# contribute to get your Hacktoberfest swags.
 # Textutils
 
 Textutils gives you a way to analyze your text quickly and efficiently. Be it word count, character count ,converting to uppercase or anything.
