@@ -2,6 +2,11 @@
 # Textutils
 
 Textutils gives you a way to analyze your text quickly and efficiently. Be it word count, character count ,converting to uppercase or anything.
+Current Features:
+`Convert to Uppercas`
+`Convert to Lowercase`
+`Remove Extra Spaces`
+`Read Aloud`
 
 # Getting Started with Create React App
 
