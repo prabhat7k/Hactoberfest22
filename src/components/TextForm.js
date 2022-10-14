@@ -1,10 +1,9 @@
 import React, {useState} from 'react'
 
-
 export default function TextForm(props) {
     const handleUpClick = ()=>{
         undoTextHistory.push(text);
-    updateUndoTextHistory(undoTextHistory);
+        updateUndoTextHistory(undoTextHistory);
         let newText = text.toUpperCase();
         setText(newText)
         props.showAlert("Converted to uppercase!", "success");
@@ -12,7 +11,7 @@ export default function TextForm(props) {
 
     const handleLoClick = ()=>{ 
         undoTextHistory.push(text);
-    updateUndoTextHistory(undoTextHistory);
+        updateUndoTextHistory(undoTextHistory);
         let newText = text.toLowerCase();
         
         setText(newText)
@@ -21,7 +20,7 @@ export default function TextForm(props) {
 
     const handleClearClick = ()=>{ 
         undoTextHistory.push(text);
-    updateUndoTextHistory(undoTextHistory);
+        updateUndoTextHistory(undoTextHistory);
         let newText = '';
         setText(newText);
         props.showAlert("Text Cleared!", "success");
@@ -34,7 +33,7 @@ export default function TextForm(props) {
     // Credits: A
     const handleCopy = () => {
         undoTextHistory.push(text);
-    updateUndoTextHistory(undoTextHistory);
+        updateUndoTextHistory(undoTextHistory);
         navigator.clipboard.writeText(text); 
         props.showAlert("Copied to Clipboard!", "success");
     }
@@ -42,7 +41,7 @@ export default function TextForm(props) {
     // Credits: Coding Wala
     const handleExtraSpaces = () => {
         undoTextHistory.push(text);
-    updateUndoTextHistory(undoTextHistory);
+        updateUndoTextHistory(undoTextHistory);
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "));
         props.showAlert("Extra spaces removed!", "success");
@@ -60,25 +59,25 @@ export default function TextForm(props) {
     }
     const handleUndoText = () => {
         redoTextHistory.push(text);
-    updateRedoTextHistory(redoTextHistory);
-    const lastText = undoTextHistory[undoTextHistory.length - 1];
-    undoTextHistory.pop();
-    updateUndoTextHistory(undoTextHistory);
-    setText(lastText);
-    props.showAlert("Successfully recovered your last text!", "success");
+        updateRedoTextHistory(redoTextHistory);
+        const lastText = undoTextHistory[undoTextHistory.length - 1];
+        undoTextHistory.pop();
+        updateUndoTextHistory(undoTextHistory);
+        setText(lastText);
+        props.showAlert("Successfully recovered your last text!", "success");
     }
       const handleRedoText = () => {
-    undoTextHistory.push(text);
-    updateUndoTextHistory(undoTextHistory);
-    const lastText = redoTextHistory[redoTextHistory.length - 1];
-    redoTextHistory.pop();
-    updateRedoTextHistory(redoTextHistory);
-    setText(lastText);
-    props.showAlert("Successfully recovered your last text!", "success");
-  };
+        undoTextHistory.push(text);
+        updateUndoTextHistory(undoTextHistory);
+        const lastText = redoTextHistory[redoTextHistory.length - 1];
+        redoTextHistory.pop();
+        updateRedoTextHistory(redoTextHistory);
+        setText(lastText);
+        props.showAlert("Successfully recovered your last text!", "success");
+    };
 
-  const [redoTextHistory, updateRedoTextHistory] = useState([]);
-  const [undoTextHistory, updateUndoTextHistory] = useState([]);
+    const [redoTextHistory, updateRedoTextHistory] = useState([]);
+    const [undoTextHistory, updateUndoTextHistory] = useState([]);
 
     const [text, setText] = useState(''); 
     // text = "new text"; // Wrong way to change the state
@@ -95,16 +94,8 @@ export default function TextForm(props) {
             <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>Clear Text</button>
             <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy Text</button>
             <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
- <button
-          disabled={textHistory.length === 0}
-          disabled={undoTextHistory.length === 0}
-          className="custom-button mx-1 my-1"
-          type="submit"
-          onClick={handleUndoText}
-        >
-          Undo Text
-        </button>            
-<button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleReadAloud}>Read Aloud</button>
+            <button disabled={textHistory.length === 0} disabled={undoTextHistory.length === 0} className="custom-button mx-1 my-1" type="submit" onClick={handleUndoText}>Undo Text</button>            
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleReadAloud}>Read Aloud</button>
             <button
           disabled={redoTextHistory.length === 0}
           className="custom-button mx-1 my-1"
