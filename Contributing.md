@@ -24,7 +24,7 @@
 14. Click on `Create Pull Request`.
 15. Wait until your PR to the project is reviewed by the maintainers.
 
-## Contributers:
+## Contributors:
 
 ```tpt7k ```
 
@@ -37,3 +37,5 @@
 ```sweetyabck ```
 
 ```Gautam2305```
+
+```d6stiny```
